@@ -10,7 +10,8 @@
 extern void lock_mutex(void *mutex);
 extern void unlock_mutex(void *mutex);
 
-pthread_t tid[2];
+// declare threads
+pthread_t tid[2];                                
 int counter;
 // pthread_mutex_t lock;
 unsigned int mutexlock = unlocked;
@@ -43,9 +44,9 @@ int main(void)
 		return 1;
 	}
 #endif
-
-	while (i < 2) {
-		err = pthread_create(&(tid[i]), NULL, &doSomeThing, NULL);
+	//run "doSomeThing" by each threads simultaneously
+	while (i < 2) {                                                    
+		err = pthread_create(&(tid[i]), NULL, &doSomeThing, NULL);     
 		if (err != 0)
 			printf("\ncan't create thread :[%s]", strerror(err));
 		i++;
