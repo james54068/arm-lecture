@@ -28,6 +28,8 @@ fibonacci:
 	mov r3, #0
 	mov r4, #1
 
+
+	@while loop
 		Recursive:
 		add r5, r3, r4
 		mov r3, r4
