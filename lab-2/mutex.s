@@ -51,10 +51,15 @@ unlock_mutex:
 
  	@ r0 is mutexlock | locked, 1 | unlocked, 0
 
- 	@assign unlocked=0 into r1
  	ldr r1, =unlocked
- 	@store r1 into r0
- 	str r1, [r0]
+ 	
+ 	check_unlock:
+ 	@assign unlocked=0 into r1
+ 	ldrex r2, [r0]
+ 	strex r2, r1, [r0]
+ 	cmpeq r2, #0
+ 	bne check_unlock
+
  	@return r0 = unlocked = 0 
 
 	
