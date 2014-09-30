@@ -1,5 +1,5 @@
 CC	= arm-linux-gnueabihf-gcc
-CFLAGS	= -pthread -static
+CFLAGS	= -pthread -static -g -o
 
 objects = atomic.o mutex.o
 
@@ -8,7 +8,7 @@ default: atomic
 .PHONY: default clean
 
 atomic: $(objects)
-	$(CC) $(CFLAGS) -o$@ $^
+	$(CC) $(CFLAGS) -o$@ $^	
 
 atomic.o: atomic.c
 mutex.o: mutex.s

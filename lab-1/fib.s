@@ -25,8 +25,8 @@ fibonacci:
 
 	sub  r0, r0, #0
 	@variable
-	mov r3, #0
-	mov r4, #1
+	movs r3, #0
+	movs r4, #1
 
 
 	@while loop
