@@ -18,9 +18,10 @@ mutex.o: mutex.s
 
 %.o: %.s
 	$(CC) -c $(CFLAGS) -o $@ $<
-
+ 
 clean:
 	rm -f $(objects) atomic
 
 qemu: atomic
 	qemu-arm ./atomic
+	#arm-none-eabi-gdb -x gdbscript atomic
