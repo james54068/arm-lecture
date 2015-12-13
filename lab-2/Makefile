@@ -1,5 +1,5 @@
 CC	= arm-linux-gnueabihf-gcc
-CFLAGS	= -pthread -static -g -o
+CFLAGS	= -O1 -Wall -pthread -static -g
 
 objects = atomic.o mutex.o
 
